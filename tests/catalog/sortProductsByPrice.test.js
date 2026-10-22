@@ -2,7 +2,8 @@ const products = require("../../src/data/products");
 const { sortProductsByPrice } = require("../../src/catalog");
 
 const getIds = (items) => items.map((product) => product.id);
-const pickByIds = (ids) => products.filter(({ id }) => ids.includes(id));
+const pickByIds = (ids) =>
+  ids.map((id) => products.find((product) => product.id === id));
 
 describe("sortProductsByPrice", () => {
   describe("По возрастанию", () => {
